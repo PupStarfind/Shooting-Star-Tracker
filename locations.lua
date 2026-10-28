@@ -1,111 +1,8 @@
 return {
-  --#region Regions
-
-
-  
- 
-  {
-    id = 5,
-    callout = "",
-    name = "The Daemonheim peninsula",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 6,
-    callout = "",
-    name = "The Feldip Hills",
-    map = Plugin.resources.Regions.map_feld,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 7,
-    callout = {"f/l", "fl"},
-    name = "Fremennik Province or Lunar Isle",
-    map = Plugin.resources.Regions.map_frem,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 8,
-    callout = "",
-    name = "Kandarin",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 9,
-    callout = "",
-    name = "The Kharidian Desert",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 10,
-    callout = {"lg"},
-    name = "The Lost Grove",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 11,
-    callout = "",
-    name = "Menaphos",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 12,
-    callout = "",
-    name = "Misthalin",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 13,
-    callout = {"m/m", "mm"},
-    name = "Morytania or Mos Le'Harmless",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 14,
-    callout = {"pgt"},
-    name = "Piscatoris, Gnome Stronghold or Tirannwn",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 15,
-    callout = "",
-    name = "Wendlewick",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  {
-    id = 16,
-    callout = "",
-    name = "The Wilderness",
-    map = nil,
-    isRegion = true,
-    regionId = -1,
-  },
-  --#endregion
-
   --#region Amberfell
   {
     id = 0,
-    callout = "",
+    callout = {},
     name = "Amberfell",
     map = Plugin.resources.Regions.map_amber,
     isRegion = true,
@@ -123,7 +20,7 @@ return {
   --#region Anachronia
   {
     id = 1,
-    callout = "",
+    callout = {},
     name = "Anachronia",
     map = nil,
     isRegion = true,
@@ -131,7 +28,7 @@ return {
   },
   {
     id = 18,
-    callout = {"sg"},
+    callout = {"sg", "ana sg"},
     name = "Anachronia Spirit Grove",
     map = nil,
     isRegion = false,
@@ -139,7 +36,7 @@ return {
   },
   {
     id = 19,
-    callout = {"ana beach"},
+    callout = {"ana beach", "light animica"},
     name = "Anachronia South-west Beach",
     map = nil,
     isRegion = false,
@@ -147,7 +44,7 @@ return {
   },
   {
     id = 20,
-    callout = {"asm", "laniakea"},
+    callout = {"asm", "ana sm", "ana swamp", "dark animica", "laniakea"},
     name = "Anachronia Swamp Mine",
     map = nil,
     isRegion = false,
@@ -157,7 +54,7 @@ return {
   --#region Asgarnia
   {
     id = 2,
-    callout = "",
+    callout = {},
     name = "Asgarnia",
     map = nil,
     isRegion = true,
@@ -189,7 +86,7 @@ return {
   },
   {
     id = 24 ,
-    callout = "",
+    callout = {},
     name = "Rimmington Mine",
     map = nil,
     isRegion = false,
@@ -215,7 +112,7 @@ return {
   --#region Ashdale
   {
     id = 3,
-    callout = "",
+    callout = {},
     name = "Ashdale",
     map = nil,
     isRegion = true,
@@ -265,7 +162,7 @@ return {
   },
   {
     id = 31,
-    callout = "",
+    callout = {},
     name = "Brimhaven Dungeon",
     map = nil,
     isRegion = false,
@@ -281,13 +178,76 @@ return {
   },
   {
     id = 33,
-    callout = "",
+    callout = {},
     name = "Shilo Village Mine",
     map = nil,
     isRegion = false,
     regionId = 4
   },
   --#endregion
-
+  --#region Daemonheim
+    {
+    id = 5,
+    callout = {},
+    name = "The Daemonheim peninsula",
+    map = nil,
+    isRegion = true,
+    regionId = -1,
+  },
+  {
+    id = 34,
+    callout = {"daem-west", "daem west", "daemonheim west", "daew", "dae-west"},
+    name = "Zephyrium Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 5
+  },
+  {
+    id = 35,
+    callout = {"daem-east", "daem east", "daemonheim east", "daee", "dae-east"},
+    name = "Daemonheim South-east",
+    map = nil,
+    isRegion = false,
+    regionId = 5
+  },
+  --#endregion
+  --#region Feldip Hills
+      {
+    id = 6,
+    callout = {},
+    name = "The Feldip Hills",
+    map = nil,
+    isRegion = true,
+    regionId = -1,
+  },
+  {
+    id = 34,
+    callout = {"feld"},
+    name = "Western Feldip Hills",
+    map = nil,
+    isRegion = false,
+    regionId = 6
+  },
+  --#endregion  
+  --#region Fremennik Province
+  --#endregion  
+  --#region Kandarin
+  --#endregion  
+  --#region Kharidian Desert
+  --#endregion  
+  --#region Lost Grove
+  --#endregion  
+  --#region Menaphos
+  --#endregion  
+  --#region Misthalin
+  --#endregion  
+  --#region Morytania
+  --#endregion  
+  --#region Piscatoris, Gnome Stronghold or Tirannwn
+  --#endregion  
+  --#region Wendlewick
+  --#endregion
+  --#region Wilderness
+  --#endregion
   
 }

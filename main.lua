@@ -172,6 +172,13 @@ local function SetText()
     for _,locEntity in ipairs(allLocs) do
         local configEntity = LookUpId(locEntity.configID)
         if(configEntity ~= nil) then
+            if(Player.GetEntity().coordGrid.x < locEntity.coordGrid.x - 32
+            or Player.GetEntity().coordGrid.x > locEntity.coordGrid.x + 32
+            or Player.GetEntity().coordGrid.z < locEntity.coordGrid.z - 32
+            or Player.GetEntity().coordGrid.z > locEntity.coordGrid.z + 32) then
+                tab1Text2.content = tab1Text2.content.."No star found nearby"
+                return
+            end
             tab1Text2.content = tab1Text2.content.."Current size: "..configEntity.name
             coordGrid = locEntity.coordGrid
         end
@@ -182,6 +189,13 @@ local function SetText()
     for _,locEntity in ipairs(allNpcs) do
         local configEntity = LookUpId(locEntity.configID)
         if(configEntity ~= nil) then
+            if(Player.GetEntity().coordGrid.x < locEntity.coordGrid.x + 32
+            or Player.GetEntity().coordGrid.x > locEntity.coordGrid.x - 32
+            or Player.GetEntity().coordGrid.z < locEntity.coordGrid.z + 32
+            or Player.GetEntity().coordGrid.z > locEntity.coordGrid.z - 32) then
+                tab1Text2.content = tab1Text2.content.."No star found nearby"
+                return
+            end
             tab1Text2.content = tab1Text2.content.."Current size: "..configEntity.name
             coordGrid = locEntity.coordGrid
         end
@@ -226,10 +240,15 @@ end
 
 local starInfoButton = tab1:AddFancyButton("Start searching for stars", StarInfoClick, { variant = "positive" })
 
+--Star active
 tab1Text1 = tab1:AddText({ text = "" })
+--Star size
 tab1Text2 = tab1:AddText({ text = "" })
+--Star direction
 tab1Text3 = tab1:AddText({ text = "" })
+--Time to next star
 tab1Text4 = tab1:AddText({ text = "" })
+--Warning message for next star time
 tab1Text5 = tab1:AddText({
     text = "",
     font = id.Font.MUSEO_SANS_15PT_BOLD,
