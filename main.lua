@@ -36,24 +36,16 @@ local tab2 = tabList:GetPage(2)
 local tab3 = tabList:GetPage(3)
 
 --Tab 1
-local tab1Text = tab1:AddText({
-    text = "",
-    height = 100,
-    y = 30,
-})
+local tab1Text1, tab1Text2, tab1Text3, tab1Text4, tab1Text5
 --Tab 2
+local tab2Text1, tab2Text2, tab2Text3, tab2Text4
 local tab2Text = tab2:AddText({
     text = "",
     height = 125,
     y = 50,
 })
 --Tab 3
-local tab3Text = tab3:AddText({
-    text = "",
-    height = 50,
-    marginBottom = 5,
-    y = 40,
-})
+local tab3Text1, tab3Text2, tab3Sprite1
 
 --#endregion
 
@@ -96,6 +88,13 @@ local function ClearShapeList()
         shapeList[1]:Destroy()
         shapeList[1] = nil
     end
+end
+local function ClearText()
+    tab1Text1.content = ""
+    tab1Text2.content = ""
+    tab1Text3.content = ""
+    tab1Text4.content = ""
+    tab1Text5.content = ""
 end
 local function CreateBox(coordGrid)
     -- A basic tile shape
@@ -157,14 +156,14 @@ local function LookUpId(configValue)
     return nil
 end
 local function SetText()
-    tab1Text.content = ""
+    ClearText()
 
     --Read DND tracker for active star
     local infoActive = var.VarPlayer.DNDTRACKER_SHOOTING_STAR_ACTIVE
     if(infoActive.value == 1) then 
-    tab1Text.content = tab1Text.content..("Is star active? Yes")
+    tab1Text1.content = tab1Text1.content..("Is star active? Yes")
     else
-    tab1Text.content = tab1Text.content..("Is star active? No")
+    tab1Text1.content = tab1Text1.content..("Is star active? No")
     end
 
     local coordGrid = nil
@@ -173,7 +172,7 @@ local function SetText()
     for _,locEntity in ipairs(allLocs) do
         local configEntity = LookUpId(locEntity.configID)
         if(configEntity ~= nil) then
-            tab1Text.content = tab1Text.content.."<br>Current size: "..configEntity.name
+            tab1Text2.content = tab1Text2.content.."Current size: "..configEntity.name
             coordGrid = locEntity.coordGrid
         end
     end
@@ -183,18 +182,24 @@ local function SetText()
     for _,locEntity in ipairs(allNpcs) do
         local configEntity = LookUpId(locEntity.configID)
         if(configEntity ~= nil) then
-            tab1Text.content = tab1Text.content.."<br>Current size: "..configEntity.name
+            tab1Text2.content = tab1Text2.content.."Current size: "..configEntity.name
             coordGrid = locEntity.coordGrid
         end
     end
-
+    
     --No star found
     if(coordGrid == nil) then
-        tab1Text.content = tab1Text.content.."<br>No star found nearby"
+        tab1Text2.content = tab1Text2.content.."No star found nearby"
         return
     end
-    tab1Text.content = tab1Text.content.."<br>You are "..CheckDirection(Player.GetEntity().coordGrid, coordGrid).." of the star"
+    tab1Text3.content = tab1Text3.content.."You are "..CheckDirection(Player.GetEntity().coordGrid, coordGrid).." of the star"
     
+    tab1Text4.content = tab1Text4.content.."Next star in: "..var.VarPlayer.DNDTRACKER_SHOOTING_STAR_TIME.value.." minutes"
+    if(var.VarPlayer.DNDTRACKER_SHOOTING_STAR_TIME.value < 25) then
+        tab1Text4.content = tab1Text4.content.."*"
+        tab1Text5.content = "*Note: The star may be part of the new wave,<br> tracker may be displaying time until end of wave"
+    end
+
     return coordGrid
 end
 local function StarInfoClick(button, active)
@@ -212,7 +217,7 @@ local function StarInfoClick(button, active)
         end)
     else
         subscribed = false
-        tab1Text.content = ""
+        ClearText()
         ClearShapeList()
         button:SetText("Start searching for stars")
         Event.ServerLogic.Unsubscribe("StarLocatorEvent")
@@ -220,6 +225,16 @@ local function StarInfoClick(button, active)
 end
 
 local starInfoButton = tab1:AddFancyButton("Start searching for stars", StarInfoClick, { variant = "positive" })
+
+tab1Text1 = tab1:AddText({ text = "" })
+tab1Text2 = tab1:AddText({ text = "" })
+tab1Text3 = tab1:AddText({ text = "" })
+tab1Text4 = tab1:AddText({ text = "" })
+tab1Text5 = tab1:AddText({
+    text = "",
+    font = id.Font.MUSEO_SANS_15PT_BOLD,
+    marginTop = 5
+})
 
 
 --#endregion
@@ -261,8 +276,11 @@ tab2:AddSimpleButton("Clear", ClearScopeInfoClick, {inline = true})
 --#endregion
 
 --#region Lookup Information
-local sprite = tab3:AddSprite(Plugin.resources.empty, {width = 375, height = 215, y = 100})
-
+local function  CleanTab3()
+    tab3Text1.content = ""
+    tab3Text2.content = ""
+    tab3Sprite1:SetSprite(Plugin.resources.empty)
+end
 local function FindLocationById(id)
     for _, callout in ipairs(Locations) do
         if(callout.id == id) then
@@ -302,6 +320,7 @@ end
 local function CalloutBoxChange(field, reason, text)
     local partial = false
     local callout = nil
+    CleanTab3()
     callout = FindLocationByFullName(text)
     if(callout == nil) then
         callout = FindLocationByPartialName(text)
@@ -310,33 +329,36 @@ local function CalloutBoxChange(field, reason, text)
         end
     end
     if(text == "" or callout == nil) then
-        tab3Text.content = ""
-        sprite:SetSprite(Plugin.resources.empty)
         return
     end
 
     if(callout ~= nil) then
         if(callout.isRegion) then
-            tab3Text.content = "Region: " .. callout.name
+            tab3Text1.content = "Region: " .. callout.name
         else
             local calloutRegion = FindLocationById(callout.regionId)
+            tab3Text1.content = callout.name
             if(calloutRegion == nil) then
                 print("Missing region for callout: "..callout.name)
-                tab3Text.content = callout.name
             else
-                tab3Text.content = callout.name .. " <br>(Region: " .. calloutRegion.name .. ")"
+                tab3Text2.content = "(Region: " .. calloutRegion.name .. ")"
             end
         end
 
         if(callout.map == nil) then
             print("Missing map for callout: "..callout.name)
-            sprite:SetSprite(Plugin.resources.empty)
+            tab3Sprite1:SetSprite(Plugin.resources.empty)
         else
-            sprite:SetSprite(callout.map)
+            tab3Sprite1:SetSprite(callout.map)
         end
     end
 end
-local calloutLookup = tab3:AddTextField({ placeholder = "Look up callout", onChange = CalloutBoxChange, y = 10 })
+local calloutLookup = tab3:AddTextField({ placeholder = "Look up callout", onChange = CalloutBoxChange})
+
+tab3Text1 = tab3:AddText({ text = "" })
+tab3Text2 = tab3:AddText({ text = "" })
+tab3Sprite1 = tab3:AddSprite(Plugin.resources.empty, {width = 375, height = 215})
+
 --#endregion
 
 MainWindow:RefreshRowBackgrounds()

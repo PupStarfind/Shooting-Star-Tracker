@@ -22,7 +22,7 @@ return {
   },
   {
     id = 7,
-    callout = "f/l, fl",
+    callout = {"f/l", "fl"},
     name = "Fremennik Province or Lunar Isle",
     map = Plugin.resources.Regions.map_frem,
     isRegion = true,
@@ -46,7 +46,7 @@ return {
   },
   {
     id = 10,
-    callout = "lg",
+    callout = {"lg"},
     name = "The Lost Grove",
     map = nil,
     isRegion = true,
@@ -70,7 +70,7 @@ return {
   },
   {
     id = 13,
-    callout = "m/m, mm",
+    callout = {"m/m", "mm"},
     name = "Morytania or Mos Le'Harmless",
     map = nil,
     isRegion = true,
@@ -78,7 +78,7 @@ return {
   },
   {
     id = 14,
-    callout = "pgt",
+    callout = {"pgt"},
     name = "Piscatoris, Gnome Stronghold or Tirannwn",
     map = nil,
     isRegion = true,
@@ -113,7 +113,7 @@ return {
   },
   {
     id = 17,
-    callout = "",
+    callout = {"amb", "amber"},
     name = "Amberfell",
     map = Plugin.resources.Regions.map_amber,
     isRegion = false,
@@ -182,7 +182,7 @@ return {
   {
     id = 23,
     callout = {"hero", "burthorpe"},
-    name = "Ewean's grove",
+    name = "Ewean's Grove",
     map = nil,
     isRegion = false,
     regionId = 2
@@ -190,7 +190,7 @@ return {
   {
     id = 24 ,
     callout = "",
-    name = "Rimmington mine",
+    name = "Rimmington Mine",
     map = nil,
     isRegion = false,
     regionId = 2
@@ -232,7 +232,7 @@ return {
   {
     id = 28,
     callout = {"ash-north", "ash north"},
-    name = "North-western Ashdale",
+    name = "North-west Ashdale",
     map = nil,
     isRegion = false,
     regionId = 3
@@ -250,7 +250,7 @@ return {
   {
     id = 29,
     callout = {"cran"},
-    name = "South-western Crandor beach",
+    name = "Crandor South-west  Beach",
     map = nil,
     isRegion = false,
     regionId = 4
@@ -274,7 +274,7 @@ return {
   {
     id = 32,
     callout = {"nats"},
-    name = "Tai Bwo Wannai mine",
+    name = "Tai Bwo Wannai Mine",
     map = nil,
     isRegion = false,
     regionId = 4
@@ -282,7 +282,7 @@ return {
   {
     id = 33,
     callout = "",
-    name = "Shilo Village mine",
+    name = "Shilo Village Mine",
     map = nil,
     isRegion = false,
     regionId = 4
