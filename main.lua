@@ -13,11 +13,11 @@ local sprite = ui.Sprite.new(myGroupBox)
 sprite:SetSize(256,200)
 sprite.sprite = Plugin.resources.empty
 
-for _, callout in ipairs(Locations) do
-    if(callout.map == nil) then
-        print("Missing map for callout: "..callout.name)
+for _, abbrev in ipairs(Locations) do
+    if(abbrev.map == nil) then
+        print("Missing map for abbrev: "..abbrev.name)
     else
-        sprite.sprite = callout.map
+        sprite.sprite = abbrev.map
     end
 end
 myGroupBox:DeleteAll()
@@ -50,7 +50,6 @@ local tab3Text1, tab3Text2, tab3Sprite1
 --#endregion
 
 --#region Functions
-
 local function CheckDirection(coordFirst, coordSecond)
     if(coordFirst.x < coordSecond.x) then
         if(coordFirst.z < coordSecond.z) then
@@ -77,19 +76,33 @@ local function CheckDirection(coordFirst, coordSecond)
     end
     return "same position"
 end
+
+local range = 32
+local function CheckLimit(coordGrid1, coordGrid2)
+    if(coordGrid1 == nil or coordGrid2 == nil) then
+        return true
+    end
+    if(coordGrid1.x < coordGrid2.x - range
+    or coordGrid1.x > coordGrid2.x + range
+    or coordGrid1.z < coordGrid2.z - range
+    or coordGrid1.z > coordGrid2.z + range) then
+        return true
+    end
+    return false
+end
 --#endregion
 
 --#region Star Information
 local shapeList = {}
 local subscribed = false
 
-local function ClearShapeList()
+local function ClearShapeListTab1()
     if(#shapeList > 0) then
         shapeList[1]:Destroy()
         shapeList[1] = nil
     end
 end
-local function ClearText()
+local function ClearTextTab1()
     tab1Text1.content = ""
     tab1Text2.content = ""
     tab1Text3.content = ""
@@ -136,7 +149,7 @@ local function CreateBox(coordGrid)
     -- Set the instance height
     instancePos.y = startHeight
 
-    ClearShapeList()
+    ClearShapeListTab1()
 
     -- Create the named shape instance
     local instance = ShapeList.CreateInstance("myInstance")
@@ -155,15 +168,16 @@ local function LookUpId(configValue)
     end
     return nil
 end
-local function SetText()
-    ClearText()
+
+local function SetTextTab1()
+    ClearTextTab1()
 
     --Read DND tracker for active star
     local infoActive = var.VarPlayer.DNDTRACKER_SHOOTING_STAR_ACTIVE
     if(infoActive.value == 1) then 
-    tab1Text1.content = tab1Text1.content..("Is star active? Yes")
+    tab1Text1.content = ("Is star active? Yes")
     else
-    tab1Text1.content = tab1Text1.content..("Is star active? No")
+    tab1Text1.content = ("Is star active? No")
     end
 
     local coordGrid = nil
@@ -172,14 +186,11 @@ local function SetText()
     for _,locEntity in ipairs(allLocs) do
         local configEntity = LookUpId(locEntity.configID)
         if(configEntity ~= nil) then
-            if(Player.GetEntity().coordGrid.x < locEntity.coordGrid.x - 32
-            or Player.GetEntity().coordGrid.x > locEntity.coordGrid.x + 32
-            or Player.GetEntity().coordGrid.z < locEntity.coordGrid.z - 32
-            or Player.GetEntity().coordGrid.z > locEntity.coordGrid.z + 32) then
-                tab1Text2.content = tab1Text2.content.."No star found nearby"
-                return
+            if(CheckLimit(Player.GetEntity().coordGrid, locEntity.coordGrid)) then
+                tab1Text2.content = "No star found nearby"
+                break
             end
-            tab1Text2.content = tab1Text2.content.."Current size: "..configEntity.name
+            tab1Text2.content = "Current size: "..configEntity.name
             coordGrid = locEntity.coordGrid
         end
     end
@@ -189,26 +200,22 @@ local function SetText()
     for _,locEntity in ipairs(allNpcs) do
         local configEntity = LookUpId(locEntity.configID)
         if(configEntity ~= nil) then
-            if(Player.GetEntity().coordGrid.x < locEntity.coordGrid.x + 32
-            or Player.GetEntity().coordGrid.x > locEntity.coordGrid.x - 32
-            or Player.GetEntity().coordGrid.z < locEntity.coordGrid.z + 32
-            or Player.GetEntity().coordGrid.z > locEntity.coordGrid.z - 32) then
-                tab1Text2.content = tab1Text2.content.."No star found nearby"
-                return
+            if(CheckLimit(Player.GetEntity().coordGrid, locEntity.coordGrid)) then
+                tab1Text2.content = "No star found nearby"
+                break
             end
-            tab1Text2.content = tab1Text2.content.."Current size: "..configEntity.name
+            tab1Text2.content = "Current size: "..configEntity.name
             coordGrid = locEntity.coordGrid
         end
     end
     
     --No star found
     if(coordGrid == nil) then
-        tab1Text2.content = tab1Text2.content.."No star found nearby"
-        return
+        tab1Text2.content = "No star found nearby"
+    else
+        tab1Text3.content = "You are "..CheckDirection(Player.GetEntity().coordGrid, coordGrid).." of the star"
     end
-    tab1Text3.content = tab1Text3.content.."You are "..CheckDirection(Player.GetEntity().coordGrid, coordGrid).." of the star"
-    
-    tab1Text4.content = tab1Text4.content.."Next star in: "..var.VarPlayer.DNDTRACKER_SHOOTING_STAR_TIME.value.." minutes"
+    tab1Text4.content = "Next star in: "..var.VarPlayer.DNDTRACKER_SHOOTING_STAR_TIME.value.." minutes"
     if(var.VarPlayer.DNDTRACKER_SHOOTING_STAR_TIME.value < 25) then
         tab1Text4.content = tab1Text4.content.."*"
         tab1Text5.content = "*Note: The star may be part of the new wave,<br> tracker may be displaying time until end of wave"
@@ -216,14 +223,15 @@ local function SetText()
 
     return coordGrid
 end
+
 local function StarInfoClick(button, active)
     if(not subscribed) then
         subscribed = true
         button:SetText("Stop searching for stars")
         Event.ServerLogic.Subscribe("StarLocatorEvent", function()
-            local coordGrid = SetText()
+            local coordGrid = SetTextTab1()
             if(coordGrid == nil) then
-                ClearShapeList()
+                ClearShapeListTab1()
                 return
             else
                 CreateBox(coordGrid)
@@ -231,8 +239,8 @@ local function StarInfoClick(button, active)
         end)
     else
         subscribed = false
-        ClearText()
-        ClearShapeList()
+        ClearTextTab1()
+        ClearShapeListTab1()
         button:SetText("Start searching for stars")
         Event.ServerLogic.Unsubscribe("StarLocatorEvent")
     end
@@ -294,85 +302,87 @@ end
 tab2:AddSimpleButton("Clear", ClearScopeInfoClick, {inline = true})
 --#endregion
 
---#region Lookup Information
+--#region Look up Information
 local function  CleanTab3()
     tab3Text1.content = ""
     tab3Text2.content = ""
     tab3Sprite1:SetSprite(Plugin.resources.empty)
 end
 local function FindLocationById(id)
-    for _, callout in ipairs(Locations) do
-        if(callout.id == id) then
-            return callout
+    for _, abbrev in ipairs(Locations) do
+        if(abbrev.id == id) then
+            return abbrev
         end
     end
     return nil
 end
 local function FindLocationByFullName(fullName)
-    for _, callout in ipairs(Locations) do
-        if(callout.name == fullName) then
-            return callout
-        else
-            
+    for _, abbrev in ipairs(Locations) do
+        if(abbrev.name == fullName) then
+            return abbrev            
         end
-        for _, calloutName in ipairs(callout.callout) do
-            if(tostring(calloutName) == fullName) then
-                return callout
+        if(abbrev.abbreviation ~= nil) then
+            for _, abbrevName in ipairs(abbrev.abbreviation) do
+                if(tostring(abbrevName) == fullName) then
+                    return abbrev
+                end
             end
         end
     end
     return nil
 end
 local function FindLocationByPartialName(partialName)
-    for _, callout in ipairs(Locations) do
-        if(string.find(string.lower(callout.name), string.lower(partialName), 1, true)) then
-            return callout
+    for _, abbrev in ipairs(Locations) do
+        if(string.find(string.lower(abbrev.name), string.lower(partialName), 1, true)) then
+            return abbrev
         end
-        for _, calloutName in ipairs(callout.callout) do
-            if(string.find(string.lower(tostring(calloutName)), string.lower(partialName), 1, true)) then
-                return callout
-            end
+        if(abbrev.abbreviation ~= nil) then
+            for _, abbrevName in ipairs(abbrev.abbreviation) do
+                if(string.find(string.lower(tostring(abbrevName)), string.lower(partialName), 1, true)) then
+                    return abbrev
+                end
+            end            
         end
     end
     return nil
 end
 local function CalloutBoxChange(field, reason, text)
     local partial = false
-    local callout = nil
+    local abbrev = nil
     CleanTab3()
-    callout = FindLocationByFullName(text)
-    if(callout == nil) then
-        callout = FindLocationByPartialName(text)
-        if(callout ~= nil) then
+    abbrev = FindLocationByFullName(text)
+    if(abbrev == nil) then
+        abbrev = FindLocationByPartialName(text)
+        if(abbrev ~= nil) then
             partial = true
         end
     end
-    if(text == "" or callout == nil) then
+    if(text == "" or abbrev == nil) then
         return
     end
 
-    if(callout ~= nil) then
-        if(callout.isRegion) then
-            tab3Text1.content = "Region: " .. callout.name
+    if(abbrev ~= nil) then
+        if(abbrev.isRegion) then
+            tab3Text1.content = "Region: " .. abbrev.name
         else
-            local calloutRegion = FindLocationById(callout.regionId)
-            tab3Text1.content = callout.name
+            local calloutRegion = FindLocationById(abbrev.regionId)
+            tab3Text1.content = abbrev.name
             if(calloutRegion == nil) then
-                print("Missing region for callout: "..callout.name)
+                print("Missing region for abbrev: "..abbrev.name)
             else
                 tab3Text2.content = "(Region: " .. calloutRegion.name .. ")"
             end
         end
 
-        if(callout.map == nil) then
-            print("Missing map for callout: "..callout.name)
+        if(abbrev.map == nil) then
+            print("Missing map for abbrev: "..abbrev.name)
             tab3Sprite1:SetSprite(Plugin.resources.empty)
         else
-            tab3Sprite1:SetSprite(callout.map)
+            tab3Sprite1:SetSprite(abbrev.map)
         end
     end
 end
-local calloutLookup = tab3:AddTextField({ placeholder = "Look up callout", onChange = CalloutBoxChange})
+local calloutLookup = tab3:AddTextField({ placeholder = "Look up location", onChange = CalloutBoxChange})
 
 tab3Text1 = tab3:AddText({ text = "" })
 tab3Text2 = tab3:AddText({ text = "" })

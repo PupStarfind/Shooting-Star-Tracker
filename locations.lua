@@ -2,7 +2,7 @@ return {
   --#region Amberfell
   {
     id = 0,
-    callout = {},
+    abbreviation = {},
     name = "Amberfell",
     map = Plugin.resources.Regions.map_amber,
     isRegion = true,
@@ -10,7 +10,7 @@ return {
   },
   {
     id = 17,
-    callout = {"amb", "amber"},
+    abbreviation = {"amb", "amber"},
     name = "Amberfell",
     map = Plugin.resources.Regions.map_amber,
     isRegion = false,
@@ -20,7 +20,7 @@ return {
   --#region Anachronia
   {
     id = 1,
-    callout = {},
+    abbreviation = {"ana"},
     name = "Anachronia",
     map = nil,
     isRegion = true,
@@ -28,7 +28,7 @@ return {
   },
   {
     id = 18,
-    callout = {"sg", "ana sg"},
+    abbreviation = {"sg", "ana sg"},
     name = "Anachronia Spirit Grove",
     map = nil,
     isRegion = false,
@@ -36,7 +36,7 @@ return {
   },
   {
     id = 19,
-    callout = {"ana beach", "light animica"},
+    abbreviation = {"ana beach", "light animica"},
     name = "Anachronia South-west Beach",
     map = nil,
     isRegion = false,
@@ -44,7 +44,7 @@ return {
   },
   {
     id = 20,
-    callout = {"asm", "ana sm", "ana swamp", "dark animica", "laniakea"},
+    abbreviation = {"asm", "ana sm", "ana swamp", "dark animica", "laniakea"},
     name = "Anachronia Swamp Mine",
     map = nil,
     isRegion = false,
@@ -54,7 +54,7 @@ return {
   --#region Asgarnia
   {
     id = 2,
-    callout = {},
+    abbreviation = {"asg"},
     name = "Asgarnia",
     map = nil,
     isRegion = true,
@@ -62,7 +62,7 @@ return {
   },
   {
     id = 21   ,
-    callout = {"cg"},
+    abbreviation = {"cg"},
     name = "Crafting Guild",
     map = nil,
     isRegion = false,
@@ -70,7 +70,7 @@ return {
   },
   {
     id = 22,
-    callout = {"mg", "mining"}  ,
+    abbreviation = {"mg", "mining"}  ,
     name = "Artisans' Workshop",
     map = nil,
     isRegion = false,
@@ -78,7 +78,7 @@ return {
   },
   {
     id = 23,
-    callout = {"hero", "burthorpe"},
+    abbreviation = {"hero", "burthorpe"},
     name = "Ewean's Grove",
     map = nil,
     isRegion = false,
@@ -86,7 +86,7 @@ return {
   },
   {
     id = 24 ,
-    callout = {},
+    abbreviation = {},
     name = "Rimmington Mine",
     map = nil,
     isRegion = false,
@@ -94,7 +94,7 @@ return {
   },
   {
     id = 25,
-    callout = {"wf", "dwt"},
+    abbreviation = {"wf", "dwt"},
     name = "Falador West Mine",
     map = nil,
     isRegion = false,
@@ -102,7 +102,7 @@ return {
   },
   {
     id = 26,
-    callout = {"lotl", "lady of the lake", "tav lake"},
+    abbreviation = {"lotl", "lady of the lake", "tav lake", "balloon"},
     name = "Lake Crystalmere",
     map = nil,
     isRegion = false,
@@ -112,7 +112,7 @@ return {
   --#region Ashdale
   {
     id = 3,
-    callout = {},
+    abbreviation = {"ash"},
     name = "Ashdale",
     map = nil,
     isRegion = true,
@@ -120,7 +120,7 @@ return {
   },
   {
     id = 27,
-    callout = {"ash-south", "ash south", "furnace"},
+    abbreviation = {"ash-south", "ash south", "furnace"},
     name = "Central Ashdale",
     map = nil,
     isRegion = false,
@@ -128,7 +128,7 @@ return {
   },
   {
     id = 28,
-    callout = {"ash-north", "ash north"},
+    abbreviation = {"ash-north", "ash north"},
     name = "North-west Ashdale",
     map = nil,
     isRegion = false,
@@ -138,7 +138,7 @@ return {
   --#region Crandor or Karamja
   {
     id = 4,
-    callout = {"ck", "c/k"},
+    abbreviation = {"ck", "c/k"},
     name = "Karamja",
     map = nil,
     isRegion = true,
@@ -146,7 +146,7 @@ return {
   },
   {
     id = 29,
-    callout = {"cran"},
+    abbreviation = {"cran"},
     name = "Crandor South-west  Beach",
     map = nil,
     isRegion = false,
@@ -154,7 +154,7 @@ return {
   },
   {
     id = 30,
-    callout = {"hs", "horseshoe"},
+    abbreviation = {"hs", "horseshoe"},
     name = "Karamja North-west Mine",
     map = nil,
     isRegion = false,
@@ -162,7 +162,7 @@ return {
   },
   {
     id = 31,
-    callout = {},
+    abbreviation = {},
     name = "Brimhaven Dungeon",
     map = nil,
     isRegion = false,
@@ -170,7 +170,7 @@ return {
   },
   {
     id = 32,
-    callout = {"nats"},
+    abbreviation = {"nats"},
     name = "Tai Bwo Wannai Mine",
     map = nil,
     isRegion = false,
@@ -178,7 +178,7 @@ return {
   },
   {
     id = 33,
-    callout = {},
+    abbreviation = {},
     name = "Shilo Village Mine",
     map = nil,
     isRegion = false,
@@ -186,9 +186,9 @@ return {
   },
   --#endregion
   --#region Daemonheim
-    {
+  {
     id = 5,
-    callout = {},
+    abbreviation = {"daem"},
     name = "The Daemonheim peninsula",
     map = nil,
     isRegion = true,
@@ -196,7 +196,7 @@ return {
   },
   {
     id = 34,
-    callout = {"daem-west", "daem west", "daemonheim west", "daew", "dae-west"},
+    abbreviation = {"daem-west", "daem west", "daemonheim west", "daew", "dae-west"},
     name = "Zephyrium Mine",
     map = nil,
     isRegion = false,
@@ -204,7 +204,7 @@ return {
   },
   {
     id = 35,
-    callout = {"daem-east", "daem east", "daemonheim east", "daee", "dae-east"},
+    abbreviation = {"daem-east", "daem east", "daemonheim east", "daee", "dae-east"},
     name = "Daemonheim South-east",
     map = nil,
     isRegion = false,
@@ -212,9 +212,9 @@ return {
   },
   --#endregion
   --#region Feldip Hills
-      {
+  {
     id = 6,
-    callout = {},
+    abbreviation = {"feldip"},
     name = "The Feldip Hills",
     map = nil,
     isRegion = true,
@@ -222,7 +222,7 @@ return {
   },
   {
     id = 34,
-    callout = {"feld"},
+    abbreviation = {"feld"},
     name = "Western Feldip Hills",
     map = nil,
     isRegion = false,

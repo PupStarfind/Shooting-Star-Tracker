@@ -9,6 +9,6 @@
   },
   "optionalDependencies": {},
   "requiredPermissions": [],
-  "optionalPermissions": ["httpAccess", "chatAccess"],
+  "optionalPermissions": [],
   "urls": { "wiki" : "http://www.runescape.wiki/" }
 }
