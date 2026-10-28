@@ -39,14 +39,12 @@ local tab3 = tabList:GetPage(3)
 local tab1Text = tab1:AddText({
     text = "",
     height = 100,
-    marginBottom = 5,
     y = 30,
 })
 --Tab 2
 local tab2Text = tab2:AddText({
     text = "",
     height = 125,
-    marginBottom = 5,
     y = 50,
 })
 --Tab 3
@@ -275,17 +273,28 @@ local function FindLocationById(id)
 end
 local function FindLocationByFullName(fullName)
     for _, callout in ipairs(Locations) do
-        if(callout.callout == fullName or callout.name == fullName) then
+        if(callout.name == fullName) then
             return callout
+        else
+            
+        end
+        for _, calloutName in ipairs(callout.callout) do
+            if(tostring(calloutName) == fullName) then
+                return callout
+            end
         end
     end
     return nil
 end
 local function FindLocationByPartialName(partialName)
     for _, callout in ipairs(Locations) do
-        if(string.find(string.lower(callout.callout), string.lower(partialName), 1, true)
-        or string.find(string.lower(callout.name), string.lower(partialName), 1, true)) then
+        if(string.find(string.lower(callout.name), string.lower(partialName), 1, true)) then
             return callout
+        end
+        for _, calloutName in ipairs(callout.callout) do
+            if(string.find(string.lower(tostring(calloutName)), string.lower(partialName), 1, true)) then
+                return callout
+            end
         end
     end
     return nil
@@ -313,6 +322,7 @@ local function CalloutBoxChange(field, reason, text)
             local calloutRegion = FindLocationById(callout.regionId)
             if(calloutRegion == nil) then
                 print("Missing region for callout: "..callout.name)
+                tab3Text.content = callout.name
             else
                 tab3Text.content = callout.name .. " <br>(Region: " .. calloutRegion.name .. ")"
             end
