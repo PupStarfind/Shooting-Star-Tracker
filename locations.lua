@@ -136,7 +136,7 @@ return {
     id = 16,
     callout = "wf, dwt",
     name = "Falador West Mine",
-    map = Plugin.resources.starpng,
+    map = nil,
     isRegion = false,
     regionId = 2
   },

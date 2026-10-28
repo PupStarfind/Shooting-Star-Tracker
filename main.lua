@@ -11,7 +11,6 @@ myGroupBox:SetPos(0,0,0.6,0.4)
 
 local sprite = ui.Sprite.new(myGroupBox)
 sprite:SetSize(256,200)
-sprite.sprite = Plugin.resources.starpng
 sprite.sprite = Plugin.resources.empty
 
 for _, callout in ipairs(Locations) do
