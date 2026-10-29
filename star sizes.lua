@@ -41,7 +41,7 @@ return {
   },  
   {
     id = 8,
-    configValue = config.Loc.MINING_STAR_SIZE_7,
+    configValue = config.Loc.MINING_STAR_SIZE_8,
     name = "Size 8 star",
   },  
   {

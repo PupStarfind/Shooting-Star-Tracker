@@ -36,7 +36,7 @@ return {
   },
   {
     id = 19,
-    abbreviation = {"ana beach", "light animica"},
+    abbreviation = {"beach", "ana beach", "light animica"},
     name = "Anachronia South-west Beach",
     map = nil,
     isRegion = false,
@@ -70,7 +70,7 @@ return {
   },
   {
     id = 22,
-    abbreviation = {"mg", "mining"}  ,
+    abbreviation = {"art", "mg", "mining"}  ,
     name = "Artisans' Workshop",
     map = nil,
     isRegion = false,
@@ -86,7 +86,7 @@ return {
   },
   {
     id = 24 ,
-    abbreviation = {},
+    abbreviation = {"rim"},
     name = "Rimmington Mine",
     map = nil,
     isRegion = false,
@@ -102,7 +102,7 @@ return {
   },
   {
     id = 26,
-    abbreviation = {"lotl", "lady of the lake", "tav lake", "balloon"},
+    abbreviation = {"lake", "lotl", "lady of the lake", "tav lake", "balloon"},
     name = "Lake Crystalmere",
     map = nil,
     isRegion = false,
@@ -120,7 +120,7 @@ return {
   },
   {
     id = 27,
-    abbreviation = {"ash-south", "ash south", "furnace"},
+    abbreviation = {"ash-s", "ash-south", "ash south", "furnace"},
     name = "Central Ashdale",
     map = nil,
     isRegion = false,
@@ -128,7 +128,7 @@ return {
   },
   {
     id = 28,
-    abbreviation = {"ash-north", "ash north"},
+    abbreviation = {"ash-n", "ash-north", "ash north"},
     name = "North-west Ashdale",
     map = nil,
     isRegion = false,
@@ -147,7 +147,7 @@ return {
   {
     id = 29,
     abbreviation = {"cran"},
-    name = "Crandor South-west  Beach",
+    name = "Crandor South-west Beach",
     map = nil,
     isRegion = false,
     regionId = 4
@@ -162,7 +162,7 @@ return {
   },
   {
     id = 31,
-    abbreviation = {},
+    abbreviation = {"brim"},
     name = "Brimhaven Dungeon",
     map = nil,
     isRegion = false,
@@ -178,7 +178,7 @@ return {
   },
   {
     id = 33,
-    abbreviation = {},
+    abbreviation = {"shilo"},
     name = "Shilo Village Mine",
     map = nil,
     isRegion = false,
@@ -196,7 +196,7 @@ return {
   },
   {
     id = 34,
-    abbreviation = {"daem-west", "daem west", "daemonheim west", "daew", "dae-west"},
+    abbreviation = {"daem-w", "daem-west", "daem west", "daemonheim west", "daew", "dae-west"},
     name = "Zephyrium Mine",
     map = nil,
     isRegion = false,
@@ -204,7 +204,7 @@ return {
   },
   {
     id = 35,
-    abbreviation = {"daem-east", "daem east", "daemonheim east", "daee", "dae-east"},
+    abbreviation = {"daem-e", "daem-east", "daem east", "daemonheim east", "daee", "dae-east"},
     name = "Daemonheim South-east",
     map = nil,
     isRegion = false,
@@ -214,7 +214,7 @@ return {
   --#region Feldip Hills
   {
     id = 6,
-    abbreviation = {"feldip"},
+    abbreviation = {},
     name = "The Feldip Hills",
     map = nil,
     isRegion = true,
@@ -230,10 +230,186 @@ return {
   },
   --#endregion  
   --#region Fremennik Province
+  {
+    id = 7,
+    abbreviation = {"fl", "f/l"},
+    name = "Fremennik Province or Lunar Isle",
+    map = nil,
+    isRegion = true,
+    regionId = -1,
+  },
+  {
+    id = 35,
+    abbreviation = {"keld", "frem lodestone", "fremennik lodestone"},
+    name = "Keldagrim Entrance Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 7
+  },
+  {
+    id = 36,
+    abbreviation = {"rel", "rell", "rellekka"},
+    name = "Rellekka Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 7
+  },
+  {
+    id = 37,
+    abbreviation = {"lunar"},
+    name = "Lunar Isle Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 7
+  },
+  {
+    id = 38,
+    abbreviation = {"jatz", "jatizso"},
+    name = "Jatizso Dungeon Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 7
+  },
+  {
+    id = 39,
+    abbreviation = {"neitz", "neitiznot"},
+    name = "Fremennik Isles Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 7
+  },
+  {
+    id = 40,
+    abbreviation = {"misc"},
+    name = "Miscellania Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 7
+  },
   --#endregion  
   --#region Kandarin
+  {
+    id = 8,
+    abbreviation = {"kand"},
+    name = "Kandarin",
+    map = nil,
+    isRegion = true,
+    regionId = -1,
+  },
+  {
+    id = 41,
+    abbreviation = {"leg", "legends", "manor farm", "farm"},
+    name = "Legends' Guild South-west Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 8
+  },
+  {
+    id = 42,
+    abbreviation = {"mon", "monastery", "kandarin monastery", "kand monastery"},
+    name = "Ardougne South-east Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 8
+  },
+  {
+    id = 43,
+    abbreviation = {"ct", "coal trucks", "dwarf outpost", "dwarven outpost", "dwarf cannon"},
+    name = "Coal Truck Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 8
+  },
+  {
+    id = 44,
+    abbreviation = {"yan", "yanille", "yb", "yanille bank", "magic guild", "magic"},
+    name = "Yanille",
+    map = nil,
+    isRegion = false,
+    regionId = 8
+  },
+  {
+    id = 45,
+    abbreviation = {"swk", "south-west khazard", "port khazard", "fam", "fa"},
+    name = "Fight Arena South-east Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 8
+  },
+  {
+    id = 46,
+    abbreviation = {"cath", "catherby", "catherby bank", "catherby lodestone", "cath lodestone"},
+    name = "Catherby",
+    map = nil,
+    isRegion = false,
+    regionId = 8
+  },
   --#endregion  
   --#region Kharidian Desert
+  {
+    id = 9,
+    abbreviation = {"des", "kh desest", "kharidian desert"},
+    name = "The Kharidian Desert",
+    map = nil,
+    isRegion = true,
+    regionId = -1,
+  },
+  {
+    id = 47,
+    abbreviation = {"akb", "al kharid bank", "alk", "al kharid lodestone", "alk lodestone", "al kharid palace"},
+    name = "Al Kharid",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
+  {
+    id = 48,
+    abbreviation = {"scorps", "scorpion mine", "al kharid resource dungeon"},
+    name = "Al Kharid Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
+  {
+    id = 49,
+    abbreviation = {"hets", "hets oasis", "mta", "mage training arena"},
+    name = "Het's Oasis",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
+  {
+    id = 50,
+    abbreviation = {"uzer", "citharde abbey", "platinum mine"},
+    name = "Uzer Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
+  {
+    id = 51,
+    abbreviation = {"vult", "vultures", "north of sophanem", "heart of gielinor", "the heart"},
+    name = "Agility Pyramid North-west Mine",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
+  {
+    id = 52,
+    abbreviation = {"nardah", "nardah bank", "nb"},
+    name = "Nardah",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
+  {
+    id = 53,
+    abbreviation = {"quarry", "granite", "sandstone", "bandit camp"},
+    name = "Desert Quarry",
+    map = nil,
+    isRegion = false,
+    regionId = 9
+  },
   --#endregion  
   --#region Lost Grove
   --#endregion  
