@@ -348,7 +348,7 @@ return {
   --#region Kharidian Desert
   {
     id = 9,
-    abbreviation = {"des", "kh desest", "kharidian desert"},
+    abbreviation = {"des", "kh desert", "kharidian desert"},
     name = "The Kharidian Desert",
     map = nil,
     isRegion = true,
@@ -675,7 +675,7 @@ return {
   },
   {
     id = 78,
-    abbreviation = {"mb", "mage arena bank", "ma", "east of mandrith", "deserted keep", "lever"},
+    abbreviation = {"mb", "mage arena bank", "ma", "east of mandrith", "deserted keep", "lever", "level 56"},
     name = "Mage Arena",
     map = nil,
     isRegion = false,
