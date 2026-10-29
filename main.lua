@@ -318,12 +318,12 @@ local function FindLocationById(id)
 end
 local function FindLocationByFullName(fullName)
     for _, abbrev in ipairs(Locations) do
-        if(abbrev.name == fullName) then
+        if(string.lower(abbrev.name) == string.lower(fullName)) then
             return abbrev            
         end
         if(abbrev.abbreviation ~= nil) then
             for _, abbrevName in ipairs(abbrev.abbreviation) do
-                if(tostring(abbrevName) == fullName) then
+                if(string.lower(tostring(abbrevName)) == string.lower(fullName)) then
                     return abbrev
                 end
             end
