@@ -667,7 +667,7 @@ return {
   },
   {
     id = 77,
-    abbreviation = {"pm", "pirate", "mandrith", "level 54", "level 55", "banite rocks"},
+    abbreviation = {"pm", "pirate", "mandrith", "level 53", "level 54", "banite rocks"},
     name = "Wilderness Pirates' Hideout Mine",
     map = nil,
     isRegion = false,
