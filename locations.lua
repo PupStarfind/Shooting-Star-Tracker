@@ -28,7 +28,7 @@ return {
   },
   {
     id = 18,
-    abbreviation = {"sg", "ana sg"},
+    abbreviation = {"sg", "ana sg", "rex matriarchs", "dag queens", "central anachronia"},
     name = "Anachronia Spirit Grove",
     map = nil,
     isRegion = false,
@@ -70,7 +70,7 @@ return {
   },
   {
     id = 22,
-    abbreviation = {"art", "mg", "mining"}  ,
+    abbreviation = {"art", "mg", "mining guild", "east falador", "east fally"}  ,
     name = "Artisans' Workshop",
     map = nil,
     isRegion = false,
@@ -78,7 +78,7 @@ return {
   },
   {
     id = 23,
-    abbreviation = {"hero", "burthorpe"},
+    abbreviation = {"hero", "burthorpe", "heros guild", "heroes guild", "druid circle", "herb circle", "taverley", "taverly"},
     name = "Ewean's Grove",
     map = nil,
     isRegion = false,
@@ -94,7 +94,7 @@ return {
   },
   {
     id = 25,
-    abbreviation = {"wf", "dwt"},
+    abbreviation = {"wf", "dwt", "dark wizard tower", "makeover mage", "make over mage"},
     name = "Falador West Mine",
     map = nil,
     isRegion = false,
@@ -102,7 +102,7 @@ return {
   },
   {
     id = 26,
-    abbreviation = {"lake", "lotl", "lady of the lake", "tav lake", "balloon"},
+    abbreviation = {"lake", "lotl", "lady of the lake", "tav lake", "balloon", "excalibur", "excaliber"},
     name = "Lake Crystalmere",
     map = nil,
     isRegion = false,
@@ -120,7 +120,7 @@ return {
   },
   {
     id = 27,
-    abbreviation = {"ash-s", "ash-south", "ash south", "furnace"},
+    abbreviation = {"ash-s", "ash-south", "ash south", "furnace", "ash-e", "ash-east", "ash east"},
     name = "Central Ashdale",
     map = nil,
     isRegion = false,
@@ -128,7 +128,7 @@ return {
   },
   {
     id = 28,
-    abbreviation = {"ash-n", "ash-north", "ash north"},
+    abbreviation = {"ash-n", "ash-north", "ash north", "ash-w", "ash-west", "ash west", "ash lodestone", "ashdale lodestone"},
     name = "North-west Ashdale",
     map = nil,
     isRegion = false,
@@ -146,7 +146,7 @@ return {
   },
   {
     id = 29,
-    abbreviation = {"cran"},
+    abbreviation = {"cran", "crandor"},
     name = "Crandor South-west Beach",
     map = nil,
     isRegion = false,
@@ -154,7 +154,7 @@ return {
   },
   {
     id = 30,
-    abbreviation = {"hs", "horseshoe"},
+    abbreviation = {"hs", "horseshoe", "horseshoe mine", "karamja gold mine", "karamja goldmine", "karamja nw", "nw karamja"},
     name = "Karamja North-west Mine",
     map = nil,
     isRegion = false,
@@ -162,7 +162,7 @@ return {
   },
   {
     id = 31,
-    abbreviation = {"brim"},
+    abbreviation = {"brim", "brim lodestone", "karamja lodestone", "brimhaven"},
     name = "Brimhaven Dungeon",
     map = nil,
     isRegion = false,
@@ -170,7 +170,7 @@ return {
   },
   {
     id = 32,
-    abbreviation = {"nats"},
+    abbreviation = {"nats", "nature rune altar", "nature altar", "nature alter"},
     name = "Tai Bwo Wannai Mine",
     map = nil,
     isRegion = false,
@@ -256,7 +256,7 @@ return {
   },
   {
     id = 37,
-    abbreviation = {"lunar"},
+    abbreviation = {"lunar", "luna", "luna mine", "lunar mine", "suqahs", "lunar ne", "lunar northeast", "north east lunar"},
     name = "Lunar Isle Mine",
     map = nil,
     isRegion = false,
@@ -280,7 +280,7 @@ return {
   },
   {
     id = 40,
-    abbreviation = {"misc"},
+    abbreviation = {"misc", "cip", "miscellania coal mine", "coal mine"},
     name = "Miscellania Mine",
     map = nil,
     isRegion = false,
@@ -298,7 +298,7 @@ return {
   },
   {
     id = 41,
-    abbreviation = {"leg", "legends", "manor farm", "farm"},
+    abbreviation = {"leg", "legends", "manor farm", "farm", "witchaven", "witchhaven"},
     name = "Legends' Guild South-west Mine",
     map = nil,
     isRegion = false,
@@ -314,7 +314,7 @@ return {
   },
   {
     id = 43,
-    abbreviation = {"ct", "coal trucks", "dwarf outpost", "dwarven outpost", "dwarf cannon"},
+    abbreviation = {"ct", "coal trucks", "dwarf outpost", "dwarven outpost", "dwarf cannon", "cm", "seers", "mcgrubor", "mcgruber"},
     name = "Coal Truck Mine",
     map = nil,
     isRegion = false,
@@ -330,7 +330,7 @@ return {
   },
   {
     id = 45,
-    abbreviation = {"swk", "south-west khazard", "port khazard", "fam", "fa"},
+    abbreviation = {"swk", "south-west khazard", "port khazard", "fam", "fa", "north yanille"},
     name = "Fight Arena South-east Mine",
     map = nil,
     isRegion = false,
@@ -338,7 +338,7 @@ return {
   },
   {
     id = 46,
-    abbreviation = {"cath", "catherby", "catherby bank", "catherby lodestone", "cath lodestone"},
+    abbreviation = {"cath", "catherby", "catherby bank", "catherby lodestone", "cath lodestone", "fletching", "hickton"},
     name = "Catherby",
     map = nil,
     isRegion = false,
@@ -364,7 +364,7 @@ return {
   },
   {
     id = 48,
-    abbreviation = {"scorps", "scorpion mine", "al kharid resource dungeon"},
+    abbreviation = {"scorps", "scorpion mine", "al kharid resource dungeon", "garden of kharid"},
     name = "Al Kharid Mine",
     map = nil,
     isRegion = false,
@@ -372,7 +372,7 @@ return {
   },
   {
     id = 49,
-    abbreviation = {"hets", "hets oasis", "mta", "mage training arena"},
+    abbreviation = {"hets", "hets oasis", "mta", "mage training arena", "fire rune altar", "fire rune", "fire altar", "duel arena", "dual arena", "da"},
     name = "Het's Oasis",
     map = nil,
     isRegion = false,
@@ -388,7 +388,7 @@ return {
   },
   {
     id = 51,
-    abbreviation = {"vult", "vultures", "north of sophanem", "heart of gielinor", "the heart"},
+    abbreviation = {"vult", "vultures", "north of sophanem", "heart of gielinor", "the heart", "agil pyramid", "gw2", "gwd2", "god wars 2", "god wars dungeon 2"},
     name = "Agility Pyramid North-west Mine",
     map = nil,
     isRegion = false,
@@ -404,7 +404,7 @@ return {
   },
   {
     id = 53,
-    abbreviation = {"quarry", "granite", "sandstone", "bandit camp"},
+    abbreviation = {"quarry", "granite", "sandstone", "bandit camp", "bandit lodestone"},
     name = "Desert Quarry",
     map = nil,
     isRegion = false,
@@ -464,7 +464,7 @@ return {
   },
   {
     id = 58,
-    abbreviation = {"mena-id", "mena-imperial", "mena imperial", "mena id", "menaphos imperial", "vip", "mena vip"},
+    abbreviation = {"mena-id", "mena-imperial", "mena imperial", "mena id", "menaphos imperial", "vip", "mena vip", "mena acadia", "acadia"},
     name = "Menaphos Imperial District",
     map = nil,
     isRegion = false,
@@ -482,7 +482,7 @@ return {
   },
   {
     id = 59,
-    abbreviation = {"lum", "lumb", "lumbridge", "lumbridge swamp", "lumbridge swamp east", "lumbridge copper"},
+    abbreviation = {"lum", "lumb", "lumbridge", "lumbridge swamp", "lumbridge swamp east", "lumbridge copper", "lum copper", "lumby", "lumby swamp"},
     name = "Lumbridge South-east Mine",
     map = nil,
     isRegion = false,
@@ -498,7 +498,7 @@ return {
   },
   {
     id = 61,
-    abbreviation = {"champs", "champion guild", "champions guild", "swv", "southwest varrock", "south-west varrock", "varrock south-west", "varrock southwest"},
+    abbreviation = {"champs", "champion guild", "champions guild", "swv", "southwest varrock", "south-west varrock", "varrock south-west", "varrock southwest", "varrock iron mine", "varrock mithril mine", "varrock dark wizards", "varrock dark mages", "varrock lodestone"},
     name = "Varrock South-west mine",
     map = nil,
     isRegion = false,
@@ -532,7 +532,7 @@ return {
   },
   {
     id = 64,
-    abbreviation = {"can", "can lodestone"},
+    abbreviation = {"can", "can lodestone", "canifis lodestone"},
     name = "Canifis",
     map = nil,
     isRegion = false,
@@ -550,7 +550,7 @@ return {
   --#region Piscatoris, Gnome Stronghold or Tirannwn
   {
     id = 14,
-    abbreviation = {"pgt", "elf land"},
+    abbreviation = {"pgt", "p/g/t", "pisc, gnome, tir", "pisc gnome tir", "elf land"},
     name = "Piscatoris, Gnome Stronghold or Tirannwn",
     map = nil,
     isRegion = true,
@@ -558,7 +558,7 @@ return {
   },
   {
     id = 66,
-    abbreviation = {"gs", "tgs", "gnome stronghold", "tree"},
+    abbreviation = {"gs", "tgs", "gnome stronghold", "tree", "gnome tree", "spirit tree", "gnome agility"},
     name = "Tree Gnome Stronghold",
     map = nil,
     isRegion = false,
@@ -574,7 +574,7 @@ return {
   },
   {
     id = 68,
-    abbreviation = {"pisc", "pisc platinum", "south of pisc", "fishing colony"},
+    abbreviation = {"pisc", "pisc platinum", "south of pisc", "fishing colony", "hall of memories", "eternal magic trees"},
     name = "Piscatoris South Mine",
     map = nil,
     isRegion = false,
@@ -582,7 +582,7 @@ return {
   },
   {
     id = 69,
-    abbreviation = {"airuts", "needle", "west of pisc", "needle skips"},
+    abbreviation = {"airuts", "needle", "west of pisc", "needle skips", "north of hall of memories", "north of eternal magic trees"},
     name = "West of Piscatoris",
     map = nil,
     isRegion = false,
@@ -659,7 +659,7 @@ return {
   },
   {
     id = 76,
-    abbreviation = {"lm", "im", "lava", "hydrix dragon", "level 47", "phasmatite rocks"},
+    abbreviation = {"lm", "im", "lava", "hydrix dragon", "level 47", "phasmatite rocks", "death", "danger"},
     name = "Wilderness Lava Maze Mine",
     map = nil,
     isRegion = false,
