@@ -77,6 +77,7 @@ local function CheckDirection(coordFirst, coordSecond)
     return "same position"
 end
 
+--Range is limited per Mod Jewel
 local range = 32
 local function CheckLimit(coordGrid1, coordGrid2)
     if(coordGrid1 == nil or coordGrid2 == nil) then
@@ -349,7 +350,6 @@ end
 local function CalloutBoxChange(field, reason, text)
     local partial = false
     local abbrev = nil
-    CleanTab3()
     abbrev = FindLocationByFullName(text)
     if(abbrev == nil) then
         abbrev = FindLocationByPartialName(text)
@@ -357,13 +357,18 @@ local function CalloutBoxChange(field, reason, text)
             partial = true
         end
     end
-    if(text == "" or abbrev == nil) then
+    if(text == "") then
+        CleanTab3()
+        return
+    end
+    if(abbrev == nil) then
         return
     end
 
     if(abbrev ~= nil) then
         if(abbrev.isRegion) then
             tab3Text1.content = "Region: " .. abbrev.name
+            tab3Text2.content = ""
         else
             local calloutRegion = FindLocationById(abbrev.regionId)
             tab3Text1.content = abbrev.name

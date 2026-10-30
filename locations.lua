@@ -240,7 +240,7 @@ return {
   },
   {
     id = 35,
-    abbreviation = {"keld", "frem lodestone", "fremennik lodestone"},
+    abbreviation = {"keld", "frem lodestone", "fremennik lodestone", "frem mine", "fremennik mine"},
     name = "Keldagrim Entrance Mine",
     map = nil,
     isRegion = false,
@@ -608,7 +608,7 @@ return {
   },
   {
     id = 71,
-    abbreviation = {"wend-dm", "wen-dm", "wen-s", "wen s", "wend-s", "wend s", "deserted"},
+    abbreviation = {"wend-dm", "wen-dm", "wen dm", "wend dm", "havenhythe deserted mine", "wen-s", "wen s", "wend-s", "wend s", "deserted"},
     name = "Wendlewick Deserted Mine",
     map = nil,
     isRegion = false,
@@ -616,7 +616,7 @@ return {
   },
   {
     id = 72,
-    abbreviation = {"wend-hm", "wen-hm", "wen-n", "wen n", "wend-n", "wend n", "havensilver", "highweald"},
+    abbreviation = {"wend-hm", "wen-hm", "wen-n", "wend hm", "wen hm", "wen n", "wend-n", "wend n", "havensilver", "highweald"},
     name = "Highweald Mine",
     map = nil,
     isRegion = false,
